@@ -6,11 +6,11 @@ require.config({
 		angularResource: '../libs/angular/angular-resource',
 		angularCookies: '../libs/angular/angular-cookies',
 		text: '../libs/require/text',
-		moment: '../libs/moment/moment.min',
+		moment: '../libs/moment/moment.min'
     },
 	shim: {
 		'angular' : {'exports' : 'angular'},
-		'angular-resource' : {deps:['angular']},
+		'angular-resource' : {deps:['angular']}
 	},
 	priority: [
 		"angular"
@@ -25,8 +25,8 @@ require([
 	'moment',
 	'app',
 	'routes',
-	'controllers/homeController',			
-], function(angular, app) {
+	'controllers/homeController'
+], function(angular) {
   angular.element(document).ready(function () {
     angular.bootstrap(document, ['myApp']);
   });

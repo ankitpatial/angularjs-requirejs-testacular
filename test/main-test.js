@@ -11,9 +11,7 @@
             }
         }
     }
- 
     requireModules.push("app");
- 
     requireModules.push("mocks");
  
     require({
