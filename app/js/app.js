@@ -1,12 +1,8 @@
-define(['angular'], function () {
+define(['angular', 'controllers/controllers'], function () {
 	'use strict';
 
-	var app = angular.module('App', [
-		'app.controller',
-		'app.directive',
-		'app.filter',
-		'app.provider',
-		'app.service'
+	var app = angular.module('myApp', [
+		'controllers',
 	]);
 
 	return app;

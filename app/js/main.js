@@ -24,17 +24,7 @@ require([
 	'angularCookies',
 	'moment',
 	'app',
-	'routes',
-	'controllers/baseController'
-	'controllers/homeController'
-
-	'directives/baseDirective',
-
-	'filter/baseFilter',
-
-	'provider/baseProvider',
-
-	'services/baseService'
+	'routes'
 ], function(angular) {
   angular.element(document).ready(function () {
     angular.bootstrap(document, ['myApp']);

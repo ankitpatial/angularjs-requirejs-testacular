@@ -4,7 +4,7 @@ define(['angular', 'mocks'], function(angular, mocks) {
 			var service, controllerScope, Controller;
 
 			beforeEach(function () {
-				var app = angular.module("App");				
+				var app = angular.module("myApp");				
 			});
 
 			beforeEach(function () {
@@ -23,7 +23,7 @@ define(['angular', 'mocks'], function(angular, mocks) {
 						//service = _Service;
 						console.log($controller);
 						controllerScope = $rootScope.$new();
-						$controller("HomeController", {
+						$controller("homeController", {
 							$scope: controllerScope
 						});
 					}

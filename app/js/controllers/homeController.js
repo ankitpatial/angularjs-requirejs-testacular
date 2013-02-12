@@ -1,11 +1,14 @@
 /**
  * HomeController
  **/
-define(['angular'], function (angular) {
+ define(function () {
 	'use strict';
-	return angular.module('app.controller').controller('HomeController', ['$scope', '$http', 'authService',
-		function HomeController($scope, $http, authService) {
-			
-		}
-	]);
+	
+	function HomeController($scope, $http) {
+		console.log($scope, $http);
+	}
+
+	HomeController.$inject = ['$scope', '$http'];
+
+	return HomeController;
 });
