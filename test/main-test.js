@@ -5,7 +5,7 @@
  
    for (file in window.__testacular__.files) {
         if (window.__testacular__.files.hasOwnProperty(file)) {
-            if (file.substring(file.length - 7, file.length) === 'Spec.js') {
+            if (file.substring(file.length - 7, file.length) === 'Test.js') {
                 console.log('Added file to testing..');
                 requireModules.push(file);
             }

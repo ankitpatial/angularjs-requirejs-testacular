@@ -1,8 +1,11 @@
-define(['app'], function (app) {
+/**
+ * HomeController
+ **/
+define(['angular'], function (angular) {
 	'use strict';
-
-	return app.controller('HomeController', ['$scope', '$http', 'authService',
+	return angular.module('app.controller').controller('HomeController', ['$scope', '$http', 'authService',
 		function HomeController($scope, $http, authService) {
 			
-		}]);
+		}
+	]);
 });

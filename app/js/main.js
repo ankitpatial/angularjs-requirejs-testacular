@@ -25,7 +25,16 @@ require([
 	'moment',
 	'app',
 	'routes',
+	'controllers/baseController'
 	'controllers/homeController'
+
+	'directives/baseDirective',
+
+	'filter/baseFilter',
+
+	'provider/baseProvider',
+
+	'services/baseService'
 ], function(angular) {
   angular.element(document).ready(function () {
     angular.bootstrap(document, ['myApp']);
