@@ -1,3 +1,36 @@
-<div class="span8 offset2" style="padding-top:150px">
-	<h1>cloudbroker</h1>
+<div class="container">
+	<form class="form-standard" style="width: 400px" ng-submit="login()" name="form">
+		<h2>Please sign in</h2>
+		<fieldset>											
+			<div class="control-group">
+				<label class="control-label" for="username">Username</label>
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-user"></i></span>
+						<input placeholder="Enter your username..." type="text" class="input-large" ng-model="user.j_username" name="username" />						 
+					</div>
+					<span ng-show="form.username.$error" class="help-inline">{{errors.username}}</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="password">Password</label>
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-lock"></i></span>
+						<input placeholder="Enter your password..." type="password" class="input-large" ng-model="user.j_password" name="password" />					
+					</div>
+					<span ng-show="form.password.$error" class="help-inline">{{errors.password}}</span>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button class="btn" ng-click="reset()" ng-disabled="isUnchanged(user)">Cancel</button>
+				<button class="btn btn-primary" type="submit">Login</button>
+				<a href="#/forgot-password" style="float:right">Forgot password?</a>			            		
+			</div>
+			<div class="control-group debug" ng-show="DEBUG">
+				<p>user = {{user | json}}</p>
+			</div>
+		</fieldset>
+	</form>	
 </div>
+	

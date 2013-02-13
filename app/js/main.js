@@ -1,12 +1,11 @@
 'use strict';
 
 require.config({
-	paths: {		   
+	paths: {	
+		underscore: '../libs/underscore/underscore',	   
 		angular: '../libs/angular/angular',
 		angularResource: '../libs/angular/angular-resource',
-		angularCookies: '../libs/angular/angular-cookies',
-		text: '../libs/require/text',
-		moment: '../libs/moment/moment.min'
+		text: '../libs/require/text'
     },
 	shim: {
 		'angular' : {'exports' : 'angular'},
@@ -21,8 +20,6 @@ require.config({
 require([			
 	'angular', 		
 	'angularResource',
-	'angularCookies',
-	'moment',
 	'app',
 	'routes'
 ], function(angular) {

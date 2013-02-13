@@ -1,14 +1,18 @@
 /**
  * HomeController
  **/
- define(function () {
+ 
+define(function () {
 	'use strict';
 	
-	function HomeController($scope, $http) {
-		console.log($scope, $http);
+	function HomeController($scope, $http, homeService) {
+
+		$scope.login = function() {
+			console.log('login() was called');
+		};
 	}
 
-	HomeController.$inject = ['$scope', '$http'];
+	HomeController.$inject = ['$scope', '$http', 'homeService'];
 
 	return HomeController;
 });

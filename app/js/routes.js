@@ -1,10 +1,11 @@
 define(['app'], function (app) {
-	'use strict';
-
 	return app.config(['$routeProvider', '$locationProvider',
-	function($routeProvider, $locationProvider) {		
-		$routeProvider.
-		otherwise({redirectTo:'/'});
-		//$locationProvider.html5Mode(true);        	
-	}]);
+		function($routeProvider, $locationProvider) {
+			$routeProvider.
+				when('/home', {
+					templateUrl: 'partials/home.html',
+					controller: 'homeController'
+				}).
+				otherwise({redirectTo:'/'});
+		}]);
 });

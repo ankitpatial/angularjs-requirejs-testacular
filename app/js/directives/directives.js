@@ -1,6 +1,10 @@
 /**
  * BaseDirective
  **/
- define(['angular'], function (angular) {
- 	return angular.module('app.directive', []);
- });
+
+define(['angular'], 
+ 	function (angular) {
+ 		
+ 		var directives = angular.module('directives', []);
+
+});

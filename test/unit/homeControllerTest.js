@@ -1,30 +1,27 @@
 define(['angular', 'mocks'], function(angular, mocks) {
 	describe('Controller section:', function() {
-		describe('baseController', function() {
+		describe('homeController', function() {
 			var service, controllerScope, Controller;
 
 			beforeEach(function () {
-				var app = angular.module("myApp");				
+				var app = angular.module('myApp');
+				console.log(app.requires)			
 			});
 
 			beforeEach(function () {
-				angular.module("services", function ($provide) {
+				angular.module('services', function ($provide) {
 
-					$provide.factory('userService', function () {
-
-						service = "blub";
-
+					$provide.factory('homeService', function () {
+						service = 'blub';
 						return service;
 					});
 				});
 
-				inject(["$rootScope", "$controller",
+				inject(['$rootScope', '$controller',
 					function ($rootScope, $controller) {
-						//service = _Service;
-						console.log($controller);
-						controllerScope = $rootScope.$new();
-						$controller("homeController", {
-							$scope: controllerScope
+						scope = $rootScope.$new();
+						$controller('homeController', {
+							scope : $scope
 						});
 					}
 				]);

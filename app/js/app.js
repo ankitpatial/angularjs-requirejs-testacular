@@ -1,9 +1,16 @@
-define(['angular', 'controllers/controllers'], function () {
+define(['angular', 'services/services', 'directives/directives', 'providers/providers',
+	'filters/filters', 'controllers/controllers'], function () {
 	'use strict';
 
-	var app = angular.module('myApp', [
-		'controllers',
-	]);
+	return angular.module('myApp', [
+		'services',		
+		'directives',
+		'providers',
+		'filters',
+		'controllers'
+	]).config(function($httpProvider) {  				
+  		$httpProvider.defaults.headers.common['Content-Type'] = 'application/json;charset=UTF-8';
+  		$httpProvider.defaults.headers.common['Accept'] = 'application/json;charset=UTF-8';  		
+	}).constant('REST_HOST', 'http://localhost:8080\:8080/web');
 
-	return app;
 });

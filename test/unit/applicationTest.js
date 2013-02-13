@@ -4,7 +4,7 @@ define(['angular'], function(angular) {
 
       var module;
       beforeEach(function () {
-        module = angular.module("App");
+        module = angular.module("myApp");
       });
       
       it("should be registered", function() {    
@@ -21,27 +21,27 @@ define(['angular'], function(angular) {
         };
 
         beforeEach(function() {
-          dependencies = module.value('app').requires;          
+          dependencies = module.value('myApp').requires;          
         });
 
-        it("should have app.filter as a dependency", function() {
-          expect(hasModule('app.filter')).toEqual(true);
+        it("should have filters as a dependency", function() {
+          expect(hasModule('filters')).toEqual(true);
         });
 
-        it("should have app.service as a dependency", function() {
-          expect(hasModule('app.service')).toEqual(true);
+        it("should have services as a dependency", function() {
+          expect(hasModule('services')).toEqual(true);
         });
 
-        it("should have app.filter as a dependency", function() {
-          expect(hasModule('app.filter')).toEqual(true);
+        it("should have controllers as a dependency", function() {
+          expect(hasModule('filters')).toEqual(true);
         });
 
-        it("should have app.directives as a dependency", function() {
-          expect(hasModule('app.directive')).toEqual(true);
+        it("should have directives as a dependency", function() {
+          expect(hasModule('directives')).toEqual(true);
         });
 
-        it("should have app.provider as a dependency", function() {
-          expect(hasModule('app.provider')).toEqual(true);
+        it("should have providers as a dependency", function() {
+          expect(hasModule('providers')).toEqual(true);
         });
       });
     });
