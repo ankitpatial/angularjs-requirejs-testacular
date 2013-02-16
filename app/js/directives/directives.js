@@ -7,4 +7,5 @@ define(['angular'],
  		
  		var directives = angular.module('directives', []);
 
+ 		return directives;
 });

@@ -8,4 +8,6 @@ define(['angular', 'controllers/homeController'],
  		var controllers = angular.module('controllers', ['services']);
 
  		controllers.controller('homeController', HomeController);
+
+ 		return controllers;
 });

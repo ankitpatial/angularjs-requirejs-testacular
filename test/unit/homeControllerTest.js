@@ -1,36 +1,61 @@
-define(['angular', 'mocks'], function(angular, mocks) {
-	describe('Controller section:', function() {
-		describe('homeController', function() {
-			var service, controllerScope, Controller;
+define(function () {
+	"use strict";
 
-			beforeEach(function () {
-				var app = angular.module('myApp');
-				console.log(app.requires)			
-			});
+	describe('HomeController', function () {
+		var homeService, urlService, serviceThenSpy, baseScope;
 
-			beforeEach(function () {
-				angular.module('services', function ($provide) {
+		beforeEach(function () {
+			module('services', function ($provide) {
+				$provide.factory('homeService', function () {
+					homeService = jasmine.createSpy('backendService');
 
-					$provide.factory('homeService', function () {
-						service = 'blub';
-						return service;
+					serviceThenSpy = jasmine.createSpy('then').andCallFake(function () {
+						return {
+							then : serviceThenSpy
+						};
 					});
+
+					homeService.get = jasmine.createSpy().andCallFake(function (url) {
+						return {
+							name : 'blub',
+							pass : 'blob'
+						};
+					});
+
+					return homeService;
 				});
 
-				inject(['$rootScope', '$controller',
-					function ($rootScope, $controller) {
-						scope = $rootScope.$new();
-						$controller('homeController', {
-							scope : $scope
-						});
-					}
-				]);
+				$provide.factory('urlService', function() {
+					urlService = jasmine.createSpy('urlService');
+
+					urlService.url = jasmine.createSpy().andReturn(undefined);
+
+					return urlService;
+				});
 			});
 
-			
-			it('should have a list() function', function() {				
-				expect(true).not.toBe(null);
+			module('controllers', function ($provide) {
+				$provide.factory('location', function () {
+					return jasmine.createSpy();
+				});
+			});
+
+			inject(['homeService', 'urlService', '$rootScope', '$controller',
+				function(_homeService, _urlService, $rootScope, $controller) {
+					homeService = _homeService;
+					urlService = _urlService;
+					baseScope = $rootScope.$new();
+					$controller('homeController', {
+						$scope : baseScope
+					});
+				}
+			]);			
+		});
+
+		describe('HomeController', function () {
+			it('$scope.variable should be "empty"', function () {				
+				expect(baseScope.variable).toEqual('empty');
 			});
 		});
 	});
-});
+})

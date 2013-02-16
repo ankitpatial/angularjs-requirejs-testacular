@@ -1,5 +1,5 @@
 define(['angular', 'services/services', 'directives/directives', 'providers/providers',
-	'filters/filters', 'controllers/controllers'], function () {
+	'filters/filters', 'controllers/controllers'], function (angular) {
 	'use strict';
 
 	return angular.module('myApp', [

@@ -7,4 +7,5 @@ define(['angular'],
  		
  		var providers = angular.module('providers', []);
 
+ 		return providers;
 });

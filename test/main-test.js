@@ -11,6 +11,7 @@
             }
         }
     }
+    
     requireModules.push("app");
     requireModules.push("mocks");
  
@@ -18,16 +19,25 @@
         baseUrl:'/base/app/js',
         paths:{
             'angular':'../libs/angular/angular',
+            'angular-resource':'../libs/angular/angular-resource',
             'mocks':'../../test/libs/angular/angular-mocks'
         },
         shim:{
             'angular' : {'exports' : 'angular'},
+            'angular-resource' : {deps:['angular'], exports:'ngResource'},
             'mocks':{ deps:['angular'], exports:'mocks' }
         }
     }, requireModules, function () {
         console.log("Trying to start Testacular");  
         window.__testacular__.start();
     }, function (err) {
-        console.log(err);
+        var failedModules = err.requireModules;
+        console.log("err", err);
+
+        if (failedModules && failedModules[0]) {
+            throw new Error("Modul konnte nicht geladen werden: " + failedModules);
+        } else {
+            throw new Error("Unbekannter Fehler:" + err);
+        }
     });
 }(window, require));
