@@ -1,5 +1,5 @@
 (function (window, require) {
-    "use strict";
+    'use strict';
     var file, requireModules;
     requireModules = [];
  
@@ -11,21 +11,21 @@
             }
         }
     }
-    
-    requireModules.push("app");
-    requireModules.push("mocks");
+        
+    requireModules.push('app');
+    requireModules.push('mocks'); 
  
     require({
         baseUrl:'/base/app/js',
         paths:{
-            'angular':'../libs/angular/angular',
-            'angular-resource':'../libs/angular/angular-resource',
-            'mocks':'../../test/libs/angular/angular-mocks'
+            'angular' : '../libs/angular/angular',
+            'resource' : '../libs/angular/angular-resource',
+            'mocks' : '../../test/libs/angular/angular-mocks'
         },
         shim:{
-            'angular' : {'exports' : 'angular'},
-            'angular-resource' : {deps:['angular'], exports:'ngResource'},
-            'mocks':{ deps:['angular'], exports:'mocks' }
+            'angular' : { 'exports' : 'angular' },
+            'resource' : { deps : ['angular'], 'exports' : 'ngResource'},
+            'mocks': { deps : ['angular'], 'exports' : 'mocks'}
         }
     }, requireModules, function () {
         console.log("Trying to start Testacular");  

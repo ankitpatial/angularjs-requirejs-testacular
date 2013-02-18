@@ -4,10 +4,10 @@ define(function () {
 	describe('HomeController', function () {
 		var homeService, urlService, serviceThenSpy, baseScope;
 
-		beforeEach(function () {
+		beforeEach(function () {			
 			module('services', function ($provide) {
 				$provide.factory('homeService', function () {
-					homeService = jasmine.createSpy('backendService');
+					homeService = jasmine.createSpy('homeService');
 
 					serviceThenSpy = jasmine.createSpy('then').andCallFake(function () {
 						return {
