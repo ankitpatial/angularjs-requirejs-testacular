@@ -2,10 +2,10 @@
  * BaseService
  **/
  
-define(['angular', 'services/homeService'], 
+define(['angular', 'services/homeService', 'resource'], 
  	function (angular, HomeService) {
- 		
- 		var services = angular.module('services', ['ngResource']);
+		console.log(angular);
+		var services = angular.module('services', ['ngResource']);
 
  		services.factory('homeService', HomeService);
 

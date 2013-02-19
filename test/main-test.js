@@ -13,18 +13,18 @@
     }
         
     requireModules.push('app');
-    requireModules.push('mocks'); 
+    requireModules.push('mocks');
  
     require({
         baseUrl:'/base/app/js',
         paths:{
-            'angular' : '../libs/angular/angular',
-            'resource' : '../libs/angular/angular-resource',
-            'mocks' : '../../test/libs/angular/angular-mocks'
+            'angular' : '../lib/angular/angular',
+            'resource' : '../lib/angular/angular-resource',        
+            'mocks' : '../../test/lib/angular/angular-mocks'
         },
         shim:{
             'angular' : { 'exports' : 'angular' },
-            'resource' : { deps : ['angular'], 'exports' : 'ngResource'},
+            'resource' : { deps : ['angular'] },
             'mocks': { deps : ['angular'], 'exports' : 'mocks'}
         }
     }, requireModules, function () {

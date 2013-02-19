@@ -5,8 +5,9 @@ files = [
     JASMINE_ADAPTER,
     REQUIRE,
     REQUIRE_ADAPTER,
-    {pattern:'app/libs/angular/angular.js', included:false},
-    {pattern:'test/libs/angular/angular-mocks.js', included:false},
+    {pattern:'app/lib/angular/angular.js', included:false},
+     {pattern:'app/lib/angular/angular-resource.js', included:false},
+    {pattern:'test/lib/angular/angular-mocks.js', included:false},
     {pattern:'app/js/**/*.js', included:false}, //Produktionscode
     {pattern:'test/unit/**/*.js', included:false}, //Testcode
     'test/main-test.js' //requireJS-Konfiguration
