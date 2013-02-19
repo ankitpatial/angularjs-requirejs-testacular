@@ -1,11 +1,11 @@
+
 define(['app'], function (app) {
-	return app.config(['$routeProvider', '$locationProvider',
-		function($routeProvider, $locationProvider) {
-			$routeProvider.
-				when('/home', {
-					templateUrl: 'partials/home.html',
-					controller: 'homeController'
-				}).
-				otherwise({redirectTo:'/'});
-		}]);
+	return app.config(['$routeProvider', function($routeProvider) {
+		$routeProvider.
+			when('/home', {
+				templateUrl: 'partials/home.html',
+				controller: 'homeController'
+			}).
+			otherwise({redirectTo:'/'});
+	}]);
 });

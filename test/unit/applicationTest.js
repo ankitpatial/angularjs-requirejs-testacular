@@ -1,10 +1,11 @@
 define(['angular'], function(angular) { 
     describe("Sample Project: Testing Modules", function() {
     describe("MyApp Module:", function() {
-
-      var module;
+      var module, dependencies;
+      
       beforeEach(function () {
         module = angular.module("myApp");
+        dependencies = module.requires;
       });
       
       it("should be registered", function() {    
@@ -12,17 +13,10 @@ define(['angular'], function(angular) {
       });
 
       describe("Dependencies:", function() {
-        
-        var dependencies;
 
         var hasModule = function(module) {
           return dependencies.indexOf(module) >= 0;
-          console.log(dependencies);
         };
-
-        beforeEach(function() {
-          dependencies = module.value('myApp').requires;          
-        });
 
         it("should have filters as a dependency", function() {
           expect(hasModule('filters')).toEqual(true);
@@ -33,15 +27,11 @@ define(['angular'], function(angular) {
         });
 
         it("should have controllers as a dependency", function() {
-          expect(hasModule('filters')).toEqual(true);
+          expect(hasModule('controllers')).toEqual(true);
         });
 
         it("should have directives as a dependency", function() {
           expect(hasModule('directives')).toEqual(true);
-        });
-
-        it("should have providers as a dependency", function() {
-          expect(hasModule('providers')).toEqual(true);
         });
       });
     });

@@ -1,9 +1,9 @@
 define(['angular', 'services/services', 'directives/directives', 'providers/providers',
 	'filters/filters', 'controllers/controllers'], function (angular) {
 	'use strict';
-
+	console.log(angular);
 	return angular.module('myApp', [
-		'services',		
+		'services',
 		'directives',
 		'providers',
 		'filters',
@@ -12,5 +12,4 @@ define(['angular', 'services/services', 'directives/directives', 'providers/prov
   		$httpProvider.defaults.headers.common['Content-Type'] = 'application/json;charset=UTF-8';
   		$httpProvider.defaults.headers.common['Accept'] = 'application/json;charset=UTF-8';  		
 	}).constant('REST_HOST', 'http://localhost:8080\:8080/web');
-
 });
