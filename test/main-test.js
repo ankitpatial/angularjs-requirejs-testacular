@@ -28,7 +28,6 @@
             'mocks': { deps : ['angular'], 'exports' : 'mocks'}
         }
     }, requireModules, function () {
-        console.log("Trying to start Testacular");  
         window.__testacular__.start();
     }, function (err) {
         var failedModules = err.requireModules;

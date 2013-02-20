@@ -13,7 +13,6 @@ require({
 	urlArgs: 'v=0.1'
 }, ['app', 'routes', 'bootstrap', 'services/services', 'directives/directives', 'providers/providers',
 	'filters/filters', 'controllers/controllers'], function (app) {
-	console.log(app)	
 	return app.run();
 });
 
