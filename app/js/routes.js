@@ -4,7 +4,15 @@ define(['app'], function (app) {
 		$routeProvider.
 			when('/home', {
 				templateUrl: 'partials/home.html',
-				controller: 'homeController'
+				controller: 'homeController',
+				resolve: {
+					'home' : ['$q',
+						function ($q) {
+						var customer = { 'name' : 'value'};
+
+						return customer;
+					}]
+				}	 
 			}).
 			otherwise({redirectTo:'/'});
 	}]);
