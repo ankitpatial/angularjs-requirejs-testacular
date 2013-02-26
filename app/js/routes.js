@@ -1,6 +1,10 @@
-
-define(['app'], function (app) {
-	return app.config(['$routeProvider', function($routeProvider) {
+/**
+ *  route.js
+ **/
+define(['app'], ['ui.compat', function (app) {
+	return app.config(['$stateProvider', '$routeProvider', '$urlRouterProvider', 
+		function($stateProvider, $routeProvider, $urlRouterProvider) {
+		console.log('route was called');
 		$routeProvider.
 			when('/home', {
 				templateUrl: 'partials/home.html',
@@ -16,4 +20,4 @@ define(['app'], function (app) {
 			}).
 			otherwise({redirectTo:'/'});
 	}]);
-});
+}]);
