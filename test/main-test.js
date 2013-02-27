@@ -19,12 +19,14 @@
         baseUrl:'/base/app/js',
         paths:{
             'angular' : '../lib/angular/angular',
-            'resource' : '../lib/angular/angular-resource',        
+            'resource' : '../lib/angular/angular-resource',
+            'states' : '../lib/angular-ui/angular-ui-states',   
             'mocks' : '../../test/lib/angular/angular-mocks'
         },
         shim:{
             'angular' : { 'exports' : 'angular' },
             'resource' : { deps : ['angular'] },
+            'states' : { deps : ['angular'] },
             'mocks': { deps : ['angular'], 'exports' : 'mocks'}
         }
     }, requireModules, function () {

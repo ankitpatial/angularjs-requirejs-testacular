@@ -2,7 +2,7 @@ define(['angular', 'mocks'], function () {
 	"use strict";
 
 	describe('HomeController', function () {
-		var homeService, serviceThenSpy, baseScope;
+		var homeService, homeProvider, serviceThenSpy, baseScope;
 
 		beforeEach(function () {			
 			module('services', function ($provide) {
@@ -30,6 +30,16 @@ define(['angular', 'mocks'], function () {
 					return homeService;
 				});
 
+				$provide.factory('homeProvider', function () {
+					homeProvider = jasmine.createSpy('homeProvider');
+					homeProvider.get = jasmine.createSpy().andCallFake(function () {
+						return {
+							'id' : 1,
+							'name' : 'Sample home'
+						}
+					});
+				});
+
 			});
 
 			module('controllers', function ($provide) {
@@ -42,14 +52,16 @@ define(['angular', 'mocks'], function () {
 				});
 			});
 
-			inject(['homeService', '$rootScope', '$controller',
-				function(_homeService, $rootScope, $controller) {
+			inject(['homeService', 'homeProvider', '$rootScope', '$controller',
+				function(_homeService, _homeProvider, $rootScope, $controller) {
 					homeService = _homeService;
-					console.log(_homeService);					
+					homeProvider = _homeProvider;
+								
 					baseScope = $rootScope.$new();
 					$controller('homeController', {
 						$scope : baseScope,
-						homeService : homeService
+						homeService : homeService,
+						home : homeProvider
 					});
 				}
 			]);			
