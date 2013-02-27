@@ -6,3 +6,7 @@ require.js and a running Testacular configuration, I finally found a helpful res
 
 Finally after a couple of chats, Marco showed me the reasons why my intial project setup did not work out of the box. Thanks
 a lot again!
+
+Features to add
+====
+- Sample page for the usage of Angular UI Router.
